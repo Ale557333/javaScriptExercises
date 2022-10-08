@@ -15,7 +15,8 @@
 */
 const my3FavoriteTVShows = ['Rick and Morty', 'Big Mouth', 'Stranger Things']
 
-// console.log(`Minhas 3 séries favoritas são: ${my3FavoriteTVShows.join(', ').replace(', S', ' e S')}.`)
+// console.log(`Minhas 3 séries favoritas são: ${my3FavoriteTVShows.join(', ')
+//   .replace(', S', ' e S')}.`)
 
 /*
   02 - Comente o console.log() acima e:
@@ -36,7 +37,7 @@ const my3FavoriteTVShows = ['Rick and Morty', 'Big Mouth', 'Stranger Things']
 */
 
 const randomTVShow = 'Watchmen'
-const isRandomTVShowIncluded = my3FavoriteTVShows.includes('Watchmen')
+const isRandomTVShowIncluded = my3FavoriteTVShows.includes(randomTVShow)
 
 // console.log(isRandomTVShowIncluded)
 /*
@@ -81,7 +82,7 @@ const currentNumber = 39
 
 const falsyValues = [0, "", false, '', ``, null, undefined, NaN]
 
-console.log(`Todos os ${falsyValues.length} itens do array "falsyValues" são falsy. Inclusive o BOOLEAN.`)
+// console.log(`Todos os ${falsyValues.length} itens do array "falsyValues" são falsy. Inclusive o ${falsyValues[2]}.`)
 
 /*
   07 - Comente o console.log() acima e:
@@ -95,7 +96,7 @@ const crazyOperation = null + 1
 const crazyConversion = Boolean(crazyOperation)
 
 // console.log(crazyConversion)
-
+//O resultado foi true por que null significa 0 e somou 1. Todo número diferente de 0 é true.
 /*
   08 - Comente o console.log() acima e:
 
@@ -109,9 +110,9 @@ const crazyConversion = Boolean(crazyOperation)
   é: BOOLEAN."
 */
 const ages = [31, 82, 61, 11]
-const ageSum = ages[0] + ages[2]
+const agesSum = ages[0] + ages[2]
 
-// console.log(`"A soma entre o 1º e o 3º item de "ages" é menor ou igual a 92. Essa afirmação é: ${ageSum <= 92}."`)
+// console.log(`"A soma entre o 1º e o 3º item de "ages" é menor ou igual a 92. Essa afirmação é: ${agesSum <= 92}."`)
 /*
   09 - Comente o console.log() acima e:
 
@@ -120,7 +121,9 @@ const ageSum = ages[0] + ages[2]
   - Essa expressão deve resultar em false.
   - Exiba a "isNotAString" no console.
 */
+const  isNotAString = typeof randomTVShow !== 'string'
 
+// console.log(isNotAString)
 /*
   10 - Comente o console.log() acima e:
 
@@ -131,3 +134,4 @@ const ageSum = ages[0] + ages[2]
 
 const evenNumbers = [0, 2, 4, 6, 8, 10]
 
+// console.log(evenNumbers.indexOf(8) !== -1)
