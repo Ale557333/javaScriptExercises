@@ -23,7 +23,13 @@
     "Nem pera nem abacaxi existem no array "fruits".".
 */
 
-const fruits = ['morango', 'banana', 'mamão']
+const fruits = ["morango", "banana", "mamão"];
+
+if (fruits.includes("abacaxi" || "pera")) {
+  console.log('A string "abacaxi" existe no array fruits.');
+} else {
+  console.log('Nem pera nem abacaxi existem no array "fruits"');
+}
 
 /*
   02

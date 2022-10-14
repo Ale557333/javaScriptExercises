@@ -139,4 +139,4 @@ for (let i = 0; i < arrays.length; i++) {
   }
 }
 
-console.log(arraysSum)
+// console.log(arraysSum)

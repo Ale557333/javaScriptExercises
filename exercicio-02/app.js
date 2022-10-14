@@ -252,5 +252,5 @@ let newName = name[0].toUpperCase() + name.slice(1, 6) + ' ' + name[7].toUpperCa
 
 newName = `${name[0].toUpperCase()}${name.slice(1, 6)} ${name[7].toUpperCase()}${name.slice(8)} `
 
-// console.log(newName)
+console.log(newName)
 
