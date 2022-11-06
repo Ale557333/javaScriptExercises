@@ -61,11 +61,13 @@ const sentence = ['A', 'certeza', 'dúvida', 'é', 'o', 'princípio', 'da', 'sab
 let newSentence = ''
 
 for (let i = 0; i < sentence.length; i++) {
-  if (sentence[i] === 'certeza') {
+  const word = sentence[i]
+  
+  if (word === 'certeza') {
     continue
   }
 
-  newSentence += `${sentence[i]} `
+  newSentence += `${word} `
 }
 console.log(newSentence)
 /*
