@@ -13,17 +13,24 @@
     valor no console.
 */
 
-function convertToString (value) {
+const convertToString = value => {
   return String(value)
 }
 
+const result = String(5)
+console.log(result)
 /*
   02
 
   - Crie uma função que retorne a quantidade de caracteres que uma string  
     recebida por parâmetro possui.
 */
+const caractereCounter = value => {
+  return value.length
+}
 
+const results = caractereCounter('abracadabra pé de cabra')
+console.log(results)
 /*
   03
 
@@ -33,42 +40,72 @@ function convertToString (value) {
 
   "CHOCOTONE E OVO DE PÁSCOA JUNTOS NO MERCADO EM PLENO FEVEREIRO"
 */
+const stringInLowerCase = value => {
+  return value.toLowerCase()
+}
 
+const phraseResult = stringInLowerCase('CHOCOTONE E OVO DE PÁSCOA JUNTOS NO MERCADO EM PLENO FEVEREIRO')
+console.log(phraseResult)
 /*
   04
 
   - Crie uma função que recebe 2 parâmetros: um caractere e uma string;
   - Ao ser invocada, a função deve retornar o index do caractere na string.
 */
+const wordAndString = (caractere, string) => {
+  return string.indexOf(caractere)
+}
 
+const findCaractere = wordAndString('a', 'danielle')
+console.log(findCaractere)
 /*
   05
 
   - Crie uma função que, ao ser invocada, retorna um boolean indicando se o item  
     passado por argumento existe no array (também passado por argumento).
 */
+const thereIs = (array, item) => {
+  return array.includes(item)
+}
 
+const reveletion = thereIs(['casa', 'carro', 'trabalho', 'dinheiro'], 'casa')
+console.log(reveletion)
 /*
   06
 
   - Crie uma função que retorna a concatenação de 2 arrays, passados como  
     argumentos em sua invocação;
 */
+const concatenation = (arrayOne, arrayTwo) => {
+  return arrayOne.concat(arrayTwo)
+}
 
+const arraySum = concatenation([1, 2, 3], [4, 5, 6])
+console.log(arraySum)
 /*
   07
 
   - Crie uma função que retorna o array passado como argumento em sua invocação,  
     mas com o último item removido.
 */
+const removeItem = array => {
+  return array.pop()
+}
 
+const withoutLastItem = removeItem(['arroz', 'feijão', 'batata', 'macarrão', 'carne'])
+console.log(withoutLastItem)
 /*
   08
 
   - Crie uma função que retorna se o valor passado como argumento em sua  
     invocação é null.
 */
+const thisIsValue = value => {
+  return value === null
+}
 
+const howValueIs = thisIsValue(null)
+console.log(howValueIs)
 /*
   09
 
@@ -79,6 +116,15 @@ function convertToString (value) {
     argumento a função que exibe seu nome no console e veja se o nome realmente  
     foi exibido.
 */
+const firstName = name => {
+  const value = 'Alexandre'
+
+  name(value)
+}
+
+firstName(result => {
+  console.log(result)
+})
 
 /*
   10
@@ -90,6 +136,15 @@ function convertToString (value) {
   - Faça com que a invocação da função descrita no 1º item deste exercício (10)  
     resulte no triplo de 33.
 */
+const myFunc = callback => {
+  const value = 33
+
+  callback(value)
+}
+
+myFunc(number => {
+  console.log(number * 3)
+})
 
 /*
   11
@@ -102,6 +157,12 @@ function convertToString (value) {
 
 const numbers = [1, 2, 3]
 
+const logNumbers = (item, index, array) => {
+  console.log(`O ${item}º item do array [${array}] é ${index}.`)
+}
+
+numbers.forEach(logNumbers)
+
 /*
   12
 
@@ -113,9 +174,15 @@ const numbers = [1, 2, 3]
 const letters = ['v', 'e', 'p']
 let lettersCopy = []
 
-for (let i = 0; i < letters.length; i++) {
-  lettersCopy.push(letters[i])
+const logLetters = item => {
+  lettersCopy.push(item)
+  
 }
+
+letters.forEach(logLetters)
+
+console.log(lettersCopy)
+
 
 /*
   13
@@ -145,6 +212,10 @@ const review = [
 ]
 
 let paragraphs = ''
+
+review.forEach(sections => {
+  paragraphs += `<p>${sections}</p>`
+})
 
 section.innerHTML = paragraphs
 

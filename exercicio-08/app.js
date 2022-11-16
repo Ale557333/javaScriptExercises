@@ -57,17 +57,21 @@ for (let i = 0; i < 7; i++) {
 
 const millennialWords = ['lol', 'yolo', 'troll', 'stalkear', 'selfie', 'influencer', 'crush', 'fitness', 'hater', 'bae', 'random', 'kawaii', 'outfit', 'mood', 'fail']
 
-const millennialWordsInUpperCase = function (array = []) {
+const transformToUpperCase = function (array = []) {
   let newArray = []
 
   for (let i = 0; i < array.length; i++) {
-    newArray.push(array[i].toUpperCase())
+    const wordInUpperCase = array[i].toUpperCase()
+    
+    newArray.push(wordInUpperCase)
   }
 
   return newArray
 }
 
-console.log(millennialWordsInUpperCase(millennialWords))
+const millennialWordsInUpperCase = transformToUpperCase(millennialWords)
+
+console.log(millennialWordsInUpperCase)
 
 /*
   05
@@ -90,7 +94,9 @@ const positiveNumber = function (number = 0) {
 }
 
   for (let i = 0; i < randomNumbers.length; i++) {
-    if (positiveNumber(randomNumbers[i])) {
+    const isPositiveNumber = positiveNumber(randomNumbers[i])
+
+    if (isPositiveNumber) {
       positiveCounter++
     } else {
       negativeCounter++
@@ -112,8 +118,11 @@ const getOddNumbers = function (numbers = []) {
   let newArray = []
   
 for (let i = 0; i < numbers.length; i++) {
-  if (numbers[i] % 2 !== 0) {
-    newArray.push(numbers[i])
+  const number = numbers[i]
+  const isOddNumber = number % 2 !== 0
+
+  if (isOddNumber) {
+    newArray.push(number)
   }
 }
 
@@ -121,7 +130,9 @@ return newArray
 
 }
 
-console.log(getOddNumbers([83, 52, 31, 73, 98, 37, 61, 56, 12, 24, 35, 3, 34, 80, 42]))
+const oddNumbers = getOddNumbers([83, 52, 31, 73, 98, 37, 61, 56, 12, 24, 35, 3, 34, 80, 42])
+
+console.log(oddNumbers)
 
 /*
   07
@@ -163,7 +174,10 @@ const functions = [
 let sentence = ''
 
 for (let i = 0; i < functions.length; i++) {
-  sentence += `${functions[i]()} `
+  const string = `${functions[i]()} `
+
+  sentence += string
 }
 
 console.log(sentence)
+
