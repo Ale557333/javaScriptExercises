@@ -12,25 +12,22 @@
   - Converta a função abaixo em uma arrow function e utilize-a para exibir um  
     valor no console.
 */
+// function convertToString (value) {
+//   return String(value)
+// }
 
-const convertToString = value => {
-  return String(value)
-}
+const convertToString = value => String(value)
 
-const result = String(5)
-console.log(result)
+console.log(typeof convertToString(5))
 /*
   02
 
   - Crie uma função que retorne a quantidade de caracteres que uma string  
     recebida por parâmetro possui.
 */
-const caractereCounter = value => {
-  return value.length
-}
+const characterCounter = value => value.length
 
-const results = caractereCounter('abracadabra pé de cabra')
-console.log(results)
+console.log(characterCounter('abracadabra pé de cabra'))
 /*
   03
 
@@ -40,48 +37,36 @@ console.log(results)
 
   "CHOCOTONE E OVO DE PÁSCOA JUNTOS NO MERCADO EM PLENO FEVEREIRO"
 */
-const stringInLowerCase = value => {
-  return value.toLowerCase()
-}
+const stringInLowerCase = value => value.toLowerCase()
 
-const phraseResult = stringInLowerCase('CHOCOTONE E OVO DE PÁSCOA JUNTOS NO MERCADO EM PLENO FEVEREIRO')
-console.log(phraseResult)
+console.log(stringInLowerCase('CHOCOTONE E OVO DE PÁSCOA JUNTOS NO MERCADO EM PLENO FEVEREIRO'))
 /*
   04
 
   - Crie uma função que recebe 2 parâmetros: um caractere e uma string;
   - Ao ser invocada, a função deve retornar o index do caractere na string.
 */
-const wordAndString = (caractere, string) => {
-  return string.indexOf(caractere)
-}
+const wordAndString = (character, string) => string.indexOf(character)
 
-const findCaractere = wordAndString('a', 'danielle')
-console.log(findCaractere)
+console.log(wordAndString('d', 'danielle'))
 /*
   05
 
   - Crie uma função que, ao ser invocada, retorna um boolean indicando se o item  
     passado por argumento existe no array (também passado por argumento).
 */
-const thereIs = (array, item) => {
-  return array.includes(item)
-}
+const thereIs = (item, array) => array.includes(item)
 
-const reveletion = thereIs(['casa', 'carro', 'trabalho', 'dinheiro'], 'casa')
-console.log(reveletion)
+console.log(thereIs('5', ['1', '2', '3', '4']))
 /*
   06
 
   - Crie uma função que retorna a concatenação de 2 arrays, passados como  
     argumentos em sua invocação;
 */
-const concatenation = (arrayOne, arrayTwo) => {
-  return arrayOne.concat(arrayTwo)
-}
+const concatenation = (arrayOne, arrayTwo) => arrayOne.concat(arrayTwo)
 
-const arraySum = concatenation([1, 2, 3], [4, 5, 6])
-console.log(arraySum)
+console.log(concatenation([1, 2, 3], [4, 5, 6]))
 /*
   07
 
@@ -90,22 +75,18 @@ console.log(arraySum)
 */
 const removeItem = array => {
   return array.pop()
-}
+} 
 
-const withoutLastItem = removeItem(['arroz', 'feijão', 'batata', 'macarrão', 'carne'])
-console.log(withoutLastItem)
+console.log(removeItem(['arroz', 'feijão', 'batata', 'macarrão', 'pipoca', 'carne']))
 /*
   08
 
   - Crie uma função que retorna se o valor passado como argumento em sua  
     invocação é null.
 */
-const thisIsValue = value => {
-  return value === null
-}
+const thisIsValue = value => value === null
 
-const howValueIs = thisIsValue(null)
-console.log(howValueIs)
+console.log(thisIsValue(null))
 /*
   09
 
@@ -116,16 +97,15 @@ console.log(howValueIs)
     argumento a função que exibe seu nome no console e veja se o nome realmente  
     foi exibido.
 */
-const firstName = name => {
-  const value = 'Alexandre'
-
-  name(value)
+const invokeCallback = callback => {
+  callback()
 }
 
-firstName(result => {
-  console.log(result)
-})
+const logName = () => {
+  console.log('Alex')
+}
 
+invokeCallback(logName)
 /*
   10
 
@@ -136,17 +116,15 @@ firstName(result => {
   - Faça com que a invocação da função descrita no 1º item deste exercício (10)  
     resulte no triplo de 33.
 */
-const myFunc = callback => {
-  const value = 33
-
-  callback(value)
+const callCallback = (value, callback) => {
+  return callback(value)
 }
 
-myFunc(number => {
-  console.log(number * 3)
-})
+const triple = number => number * 3
 
-/*
+console.log(callCallback(33, triple))
+
+/* 
   11
 
   - Utilizando um forEach, baseado no array "numbers", a cada iteração, exiba a  
@@ -158,7 +136,10 @@ myFunc(number => {
 const numbers = [1, 2, 3]
 
 const logNumbers = (item, index, array) => {
-  console.log(`O ${item}º item do array [${array}] é ${index}.`)
+  const itemPosition = index + 1
+  const items = array.join(', ')
+  
+  console.log(`O ${itemPosition}º item do array [${items}] é ${item}.`)
 }
 
 numbers.forEach(logNumbers)
@@ -174,15 +155,14 @@ numbers.forEach(logNumbers)
 const letters = ['v', 'e', 'p']
 let lettersCopy = []
 
-const logLetters = item => {
-  lettersCopy.push(item)
+const logLetters = letter => {
+  lettersCopy.push(letter)
   
 }
 
 letters.forEach(logLetters)
 
 console.log(lettersCopy)
-
 
 /*
   13
@@ -213,8 +193,8 @@ const review = [
 
 let paragraphs = ''
 
-review.forEach(sections => {
-  paragraphs += `<p>${sections}</p>`
+review.forEach(paragraph => {
+  paragraphs += `<p>${paragraph}</p>`
 })
 
 section.innerHTML = paragraphs
@@ -239,3 +219,39 @@ section.innerHTML = paragraphs
     pelo restante da quantidade de pessoas que curtiram o post (além das duas  
     pessoas já mencionadas no início da mensagem).
 */
+
+const getLikesMessage = (names = []) => {
+  const firstName = names[0]
+  const secondName = names[1]
+  const thirdName = names[2]
+  const totalMinusTwo = names.length -2
+
+  switch (names.length) {
+    case 0:
+      return `Ninguém curtiu isso`
+    case 1:
+      return `${firstName} curtiu isso`
+    case 2:
+      return `${firstName} e ${secondName} curtiram isso`
+    case 3:
+      return `${firstName}, ${secondName} e ${thirdName} curtiram isso`
+    default:
+      return `${firstName}, ${secondName} e mais ${totalMinusTwo} pessoas curtiram isso`
+  }
+}
+
+console.log(getLikesMessage(['Rafael', 'Dani', 'Joaquin', 'Emília', 'Vini']))
+
+
+
+//passo a passo callback:
+
+const myfunc = aFunction => {
+  console.log(aFunction())
+}
+
+myfunc(() => 'Oi')
+
+
+
+
