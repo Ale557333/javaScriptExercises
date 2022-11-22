@@ -9,6 +9,17 @@
     - sound, que é um método que retorna o miado do gato.
   - Exiba o objeto no console.
 */
+let cat = {
+  name: 'Julio',
+  age: 2,
+  color: 'rajado',
+  bestfriends: ['Maria Efigênia', 'raio laser'],
+  sound: function () {
+    return 'meow'
+  }
+}
+
+console.log(cat)
 
 /*
   02
@@ -16,15 +27,19 @@
   - Exiba a mensagem abaixo no console, substituindo os "X" pelas informações  
     corretas.
 
-  Até aqui, o objeto "cat" possui as seguintes propriedades e valores: "name", que recebeu "X", "age", que recebeu "X", "color", que recebeu "X", "bestFriends", que recebeu um array com os itens "X" e "X", e "sound", que recebeu uma função que retorna "X".
 */
+
+console.log(`Até aqui, o objeto "cat" possui as seguintes propriedades e valores: "name", que recebeu "${cat.name}", "age", que recebeu "${cat.age}", "color", que recebeu "${cat.color}", "bestFriends", que recebeu um array com os itens "${cat.bestfriends.join( ' e ')}", e "sound", que recebeu uma função que retorna "${cat.sound()}".`)
+
 
 /*
   03
 
   - Adicione 2 anos à idade do gato e exiba a idade atualizada no console.
 */
+cat.age += 2
 
+console.log(cat.age)
 /*
   04
 
@@ -32,6 +47,13 @@
   - Exiba o array de amigos no console para verificar se o novo amigo(a) foi  
     adicionado.
 */
+const addFriends = (friend, object) => {
+ object.bestfriends.push(friend)
+}
+
+addFriends('Leonardo', cat)
+
+console.log(cat.bestfriends)
 
 /*
   05
@@ -41,6 +63,13 @@
   - Exiba a nova cor do gato no console, também utilizando a sintaxe de  
     colchetes.
 */
+const addColor = (object) => {
+  object['color'] += ` com caramelo, preto e branco`
+}
+
+addColor(cat)
+
+console.log(cat['color'])
 
 /*
   06
@@ -49,7 +78,9 @@
     parâmetro é um objeto;
   - Utilize a função para exibir no console se "cat" é um objeto.
 */
+const whatTypeIs = value => typeof value === 'object'
 
+console.log(whatTypeIs(cat))
 /*
   07
 
@@ -59,6 +90,19 @@
 
   "A soma das idades de NOME_DO_GATO e NOME_DO_CACHORRO é RESULTADO_DA_SOMA."
 */
+let dog = {
+  name: 'Neguinha',
+  age: 12,
+  color: 'black',
+  bestfriends: ['Bisteca', 'Urso', 'Estopinha', 'Leonardo'],
+  sound: function () {
+    return 'Au-au'
+  }
+}
+
+const ageSum = (cat, dog) => `A soma das idades de ${cat.name} e ${dog.name} é ${cat.age + dog.age}.`
+
+console.log(ageSum(cat, dog))
 
 /*
   08
@@ -68,16 +112,43 @@
   - Como você refatoraria esta função?
 */
 
-const isAnSUV = car => {
-  if (car === 'Honda HR-V' || car === 'Jeep Renegade' || car === 'Ford EcoSport' || car === 'Hyundai iX35') {
-    return true
-  }
+// const isAnSUV = car => {
+//   if (car === 'Honda HR-V' || car === 'Jeep Renegade' || car === 'Ford EcoSport' || car === 'Hyundai iX35') {
+//     return true
+//   }
 
-  return false
-}
+//   return false
+// }
 
 // console.log(isAnSUV('Honda Civic'))
 // console.log(isAnSUV('Ford EcoSport'))
+
+//Melhorando o código:
+
+// const cars = ['Honda HR-V', 'Jeep Renegade', 'Ford EcoSport', 'Hyundai iX35']
+
+// const isAnSUV = car => {
+//   if (cars.includes(car)) {
+//     return true
+//   }
+
+//   return false
+// }
+
+// console.log(isAnSUV('Honda Civic'))
+// console.log(isAnSUV('Ford EcoSport'))
+
+//Melhorando ainda mais o código, porém o deixando menos legível:
+
+const isAnSUV = car => [
+  'Honda HR-V', 
+  'Jeep Renegade', 
+  'Ford EcoSport', 
+  'Hyundai iX35'
+].includes(car)
+
+console.log(isAnSUV('Honda Civic'))
+console.log(isAnSUV('Ford EcoSport'))
 
 /*
   09
@@ -91,3 +162,27 @@ const isAnSUV = car => {
     propriedades, retorne a mensagem que a propriedade armazena;
   - Teste a função, exibindo no console a mensagem de cada propriedade.
 */
+
+// const IsTypeof = (type) => {
+
+//   let obj = {
+//     null: 'Seta, explicitamente, uma variável sem valor.',
+//     undefined: 'Representa um valor não-setado.',
+//     object: 'Arrays, Datas, Objetos literais, Funções, etc.'
+//   }
+//   return obj[type]
+// }
+
+// console.log(IsTypeof('null'))
+
+//Opção de resolução de código mais avançada:
+
+const IsTypeof = (type) => {
+  return {
+    null: 'Seta, explicitamente, uma variável sem valor.',
+    undefined: 'Representa um valor não-setado.',
+    object: 'Arrays, Datas, Objetos literais, Funções, etc.'
+  }[type]
+}
+
+console.log(IsTypeof('null'))
