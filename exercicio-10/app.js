@@ -28,10 +28,7 @@ console.log(cat)
     corretas.
 
 */
-
-console.log(`Até aqui, o objeto "cat" possui as seguintes propriedades e valores: "name", que recebeu "${cat.name}", "age", que recebeu "${cat.age}", "color", que recebeu "${cat.color}", "bestFriends", que recebeu um array com os itens "${cat.bestfriends.join( ' e ')}", e "sound", que recebeu uma função que retorna "${cat.sound()}".`)
-
-
+console.log(`Até aqui, o objeto "cat" possui as seguintes propriedades e valores: "name", que recebeu ${cat.name}, "age", que recebeu ${cat.age}, "color", que recebeu ${cat.color}, "bestFriends", que recebeu um array com os itens ${cat.bestfriends[0]} e ${cat.bestfriends[1]}, e "sound", que recebeu uma função que retorna ${cat.sound()}.`)
 /*
   03
 
@@ -47,14 +44,13 @@ console.log(cat.age)
   - Exiba o array de amigos no console para verificar se o novo amigo(a) foi  
     adicionado.
 */
-const addFriends = (friend, object) => {
- object.bestfriends.push(friend)
+const addFriends = (friend, cat) => {
+  cat.bestfriends.push(friend)
 }
 
-addFriends('Leonardo', cat)
+addFriends('Leonardinho', cat)
 
 console.log(cat.bestfriends)
-
 /*
   05
 
@@ -64,13 +60,12 @@ console.log(cat.bestfriends)
     colchetes.
 */
 const addColor = (object) => {
-  object['color'] += ` com caramelo, preto e branco`
+  object['color'] += ` e caramelo com preto e branco`
 }
 
 addColor(cat)
 
-console.log(cat['color'])
-
+console.log(cat.color)
 /*
   06
 
@@ -78,7 +73,7 @@ console.log(cat['color'])
     parâmetro é um objeto;
   - Utilize a função para exibir no console se "cat" é um objeto.
 */
-const whatTypeIs = value => typeof value === 'object'
+const whatTypeIs = (value) => typeof value === 'object'
 
 console.log(whatTypeIs(cat))
 /*
@@ -100,10 +95,9 @@ let dog = {
   }
 }
 
-const ageSum = (cat, dog) => `A soma das idades de ${cat.name} e ${dog.name} é ${cat.age + dog.age}.`
+const petMessage = (cat, dog) => `A soma das idades de ${cat['name']} e ${dog['name']} é ${cat['age']} + ${dog['age']}.`
 
-console.log(ageSum(cat, dog))
-
+console.log(petMessage(cat, dog))
 /*
   08
 
@@ -128,7 +122,7 @@ console.log(ageSum(cat, dog))
 // const cars = ['Honda HR-V', 'Jeep Renegade', 'Ford EcoSport', 'Hyundai iX35']
 
 // const isAnSUV = car => {
-//   if (cars.includes(car)) {
+//   if (cars.includes(car) ) {
 //     return true
 //   }
 
@@ -137,6 +131,7 @@ console.log(ageSum(cat, dog))
 
 // console.log(isAnSUV('Honda Civic'))
 // console.log(isAnSUV('Ford EcoSport'))
+
 
 //Melhorando ainda mais o código, porém o deixando menos legível:
 
@@ -163,26 +158,27 @@ console.log(isAnSUV('Ford EcoSport'))
   - Teste a função, exibindo no console a mensagem de cada propriedade.
 */
 
-// const IsTypeof = (type) => {
-
+// const isTypeof = (type) => {
 //   let obj = {
 //     null: 'Seta, explicitamente, uma variável sem valor.',
 //     undefined: 'Representa um valor não-setado.',
 //     object: 'Arrays, Datas, Objetos literais, Funções, etc.'
 //   }
+
 //   return obj[type]
 // }
 
-// console.log(IsTypeof('null'))
+// console.log(isTypeof('null'))
 
 //Opção de resolução de código mais avançada:
 
-const IsTypeof = (type) => {
+const isTypeof = (type) => {
   return {
     null: 'Seta, explicitamente, uma variável sem valor.',
     undefined: 'Representa um valor não-setado.',
     object: 'Arrays, Datas, Objetos literais, Funções, etc.'
   }[type]
+
 }
 
-console.log(IsTypeof('null'))
+console.log(isTypeof('null'))
