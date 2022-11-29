@@ -60,7 +60,7 @@
 let car = {
   name: 'Fusca',
   brand: 'Volskswagen',
-  colors: ['Vermelho', 'Azul', 'Preto'],
+  colors: ['Azul', 'Vermelho', 'Roxo'],
   isRunning: false,
   run () {
     this.isRunning = true
@@ -71,7 +71,9 @@ let car = {
     return `O ${this.name} está parado`
   },
   getColorsMessage () {
-    return `O ${this.name} está disponível nas cores ${this.colors[0]}, ${this.colors[1]} e ${this.colors[2]}"`
+    const lastItemColors = this.colors[this.colors.length -1]
+    const colors = this.colors.join(', ').replace(`, ${lastItemColors}`, ` e ${lastItemColors}`)
+    return `O ${this.name} está disponível nas cores ${colors}`
   }
 
 }
