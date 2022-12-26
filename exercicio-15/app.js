@@ -100,6 +100,5 @@ const body = document.querySelector('body')
 //const body = document.body
 
   h1.addEventListener('click', () => {
-    
-    body.remove()
+    body.innerHTML = ''
   })
