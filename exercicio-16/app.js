@@ -7,15 +7,19 @@
 
 const div = document.querySelector('div')
 const elementsInsideDiv = Array.from(div.children)
+const h2 = document.querySelector('h2')
+const eggDiv = document.querySelector('.egg')
+const button = document.querySelector('button')
 
 elementsInsideDiv.forEach(element => {
-  element.addEventListener('click', () => {
-    console.log('Clicou no filho da div.')
+  element.addEventListener('click', event => {
+    event.stopPropagation()
+    h2.textContent = `Clicou no ${event.target.tagName.toLowerCase()}`
   })
 })
 
 div.addEventListener('click', () => {
-  console.log('Clicou na div.')
+  h2.textContent = `Clicou na div.`
 })
 
 /*
@@ -40,7 +44,9 @@ div.addEventListener('click', () => {
   - Faça com que quando o texto do h2 for copiado, a mensagem "Texto copiado!"  
     seja exibida no console.
 */
-
+h2.addEventListener('copy', () => {
+  console.log('Texto copiado!')
+})
 /*
   05
 
@@ -48,14 +54,18 @@ div.addEventListener('click', () => {
     o texto que ela tem por 
     "Eixo X: COORDENADA_EIXO_X | Eixo Y: COORDENADA_EIXO_Y".
 */
-
+eggDiv.addEventListener('mousemove', event => {
+  eggDiv.textContent = `Eixo X: ${event.offsetX} | Eixo Y: ${event.offsetY}`
+})
 /*
   06
 
   - Modifique a cor do ovo para "lightgoldenrodyellow" quando o botão for 
     clicado.
 */
-
+button.addEventListener('click', () => {
+  eggDiv.style.background = 'lightgoldenrodyellow'
+})
 /*
   07
 
