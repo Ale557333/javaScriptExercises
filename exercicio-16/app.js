@@ -22,6 +22,20 @@ div.addEventListener('click', () => {
   h2.textContent = `Clicou na div.`
 })
 
+h2.addEventListener('copy', () => {
+  console.log('Texto copiado!')
+})
+
+eggDiv.addEventListener('mousemove', event => {
+  eggDiv.textContent = `Eixo X: ${event.offsetX} | Eixo Y: ${event.offsetY}`
+})
+
+const changeEggColor = () => {
+  eggDiv.style.background = 'lightgoldenrodyellow'
+}
+
+button.addEventListener('click', changeEggColor)
+
 /*
   02
 
@@ -44,9 +58,7 @@ div.addEventListener('click', () => {
   - Faça com que quando o texto do h2 for copiado, a mensagem "Texto copiado!"  
     seja exibida no console.
 */
-h2.addEventListener('copy', () => {
-  console.log('Texto copiado!')
-})
+
 /*
   05
 
@@ -54,18 +66,14 @@ h2.addEventListener('copy', () => {
     o texto que ela tem por 
     "Eixo X: COORDENADA_EIXO_X | Eixo Y: COORDENADA_EIXO_Y".
 */
-eggDiv.addEventListener('mousemove', event => {
-  eggDiv.textContent = `Eixo X: ${event.offsetX} | Eixo Y: ${event.offsetY}`
-})
+
 /*
   06
 
   - Modifique a cor do ovo para "lightgoldenrodyellow" quando o botão for 
     clicado.
 */
-button.addEventListener('click', () => {
-  eggDiv.style.background = 'lightgoldenrodyellow'
-})
+
 /*
   07
 
@@ -86,3 +94,11 @@ const people = [
   { id: 8, name: 'Matheus Manucci', profession: 'Piloto' },
   { id: 9, name: 'Hamilton Silva', profession: 'Advogado' }
 ]
+
+const isSomePersonFrontendDeveloper = people.some(({profession}) => 
+  profession = 'Front-end developer')
+
+if (isSomePersonFrontendDeveloper) {
+  console.log('O array people contém, no mínimo, um(a) Front-end developer.')
+}
+
