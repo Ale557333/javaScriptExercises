@@ -11,29 +11,33 @@ const h2 = document.querySelector('h2')
 const eggDiv = document.querySelector('.egg')
 const button = document.querySelector('button')
 
-elementsInsideDiv.forEach(element => {
-  element.addEventListener('click', event => {
-    event.stopPropagation()
-    h2.textContent = `Clicou no ${event.target.tagName.toLowerCase()}`
-  })
-})
+const showClickedElement = ({target}) => {
+  const clickedElementName = target.tagName.toLowerCase()
+  
+  if (clickedElementName === 'div') {
+    h2.textContent = `Clicou na div.`
 
-div.addEventListener('click', () => {
-  h2.textContent = `Clicou na div.`
-})
+    return
+  }
 
-h2.addEventListener('copy', () => {
+  h2.textContent = `Clicou no ${clickedElementName}, filho da div.`
+}
+
+const copyMessage = () => {
   console.log('Texto copiado!')
-})
+}
 
-eggDiv.addEventListener('mousemove', event => {
+const mouseCoordinator = event => {
   eggDiv.textContent = `Eixo X: ${event.offsetX} | Eixo Y: ${event.offsetY}`
-})
+}
 
 const changeEggColor = () => {
   eggDiv.style.background = 'lightgoldenrodyellow'
 }
 
+div.addEventListener('click', showClickedElement)
+h2.addEventListener('copy', copyMessage)
+eggDiv.addEventListener('mousemove', mouseCoordinator)
 button.addEventListener('click', changeEggColor)
 
 /*
@@ -96,7 +100,7 @@ const people = [
 ]
 
 const isSomePersonFrontendDeveloper = people.some(({profession}) => 
-  profession = 'Front-end developer')
+  profession === 'Front-end developer')
 
 if (isSomePersonFrontendDeveloper) {
   console.log('O array people contém, no mínimo, um(a) Front-end developer.')
