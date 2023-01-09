@@ -5,16 +5,32 @@
 */
 const form = document.querySelector('form')
 
-form.addEventListener('submit', event => {
+const clerInput = () => {
+  input.value = ''
+  input.focus()
+}
+
+const logMessage = message => {
+  console.log(message)
+  clerInput()
+}
+
+const handleSubmit = event => {
   event.preventDefault()
  
-  const inputValue = event.target.input.value
-  console.log(inputValue)
-})
+  const input = event.target.input
+  const newRegex = /[a-zA-Z0-9]{7,11}/
+  const isAvalidValue = newRegex.test(input.value)
+  
+  if (isAvalidValue) {
+    logMessage('O valor inserido no input é válido =)')
+    return
+  }
+  
+  logMessage('Valor inválido =(')
+}
 
-const sentMessageForm = /[A-Za-z]{7,}/
-
-
+form.addEventListener('submit', handleSubmit)  
 /*
   02
 
@@ -32,7 +48,7 @@ const sentMessageForm = /[A-Za-z]{7,}/
 const p = document.querySelector('p')
 
 const regex = /documentation/
-const result = regex.test(p.textContent)
+const result = regex.test(p.textContent) //Quando textContent é usado sem o sinal de atribuição (=), ele retorna o texto que ele contém.
 
 console.log(result)
 /*
