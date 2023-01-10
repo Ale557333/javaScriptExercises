@@ -5,14 +5,14 @@
 */
 const form = document.querySelector('form')
 
-const clerInput = () => {
+const clearInput = () => {
   input.value = ''
   input.focus()
 }
 
 const logMessage = message => {
   console.log(message)
-  clerInput()
+  clearInput()
 }
 
 const handleSubmit = event => {
