@@ -20,6 +20,56 @@
   
   Dica: pesquise pelo método "insertAdjacentElement", no MDN;
 */
+const inputUsername = document.querySelector('#username')
+const form = document.querySelector('form')
+const button = document.querySelector('button')
+
+const usernameRegex = /^[a-zA-Z]{6,}$/
+
+const paragraphUsernameFeedback = document.createElement('p')
+const paragraphSubmitFeedback = document.createElement('p')
+
+paragraphSubmitFeedback.setAttribute('data-feedback', 'submit-feedback')
+
+inputUsername.addEventListener('input', event => {
+  const inputValue = event.target.value
+
+  const paragraphSubmitFeedbackExists = document
+    .querySelector('[data-feedback="submit-feedback"]')
+
+  if (paragraphSubmitFeedbackExists) {
+    paragraphSubmitFeedback.remove()
+  }
+
+  if (usernameRegex.test(inputValue)) {
+    paragraphUsernameFeedback.setAttribute('class', 'username-success-feedback')
+    paragraphUsernameFeedback.textContent = ('Username válido =)')
+    event.target.insertAdjacentElement('afterend', paragraphUsernameFeedback)
+    return
+  }
+
+  paragraphUsernameFeedback.setAttribute('class', 'username-help-feedback')
+  paragraphUsernameFeedback.textContent = ('O valor deve conter no mínimo 6 caracteres, com apenas letras maiúsculas e/ou minúsculas')
+  event.target.insertAdjacentElement('afterend', paragraphUsernameFeedback)
+})
+
+form.addEventListener('submit', event => {
+  event.preventDefault()
+
+  const inputValue = inputUsername.value
+
+  if (usernameRegex.test(inputValue)) {
+    paragraphSubmitFeedback.setAttribute('class', 'submit-success-feedback')
+    paragraphSubmitFeedback.textContent = ('Dados enviados =)')
+    button.insertAdjacentElement('afterend', paragraphSubmitFeedback)
+    return
+  }
+    
+  paragraphSubmitFeedback.setAttribute('class', 'submit-help-feedback')
+  paragraphSubmitFeedback.textContent = ('Por favor, insira um username válido')
+  button.insertAdjacentElement('afterend', paragraphSubmitFeedback)
+})
+
 
 /*
   02
