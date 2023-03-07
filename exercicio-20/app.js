@@ -27,15 +27,22 @@ const buttonStopCounter = document.querySelector('.button-stop-counter')
 
 let timer = null
 
+const incrementCounter = () => {
+  const incrementedCounter = Number(counterContainer.textContent) + 1
+  counterContainer.textContent = incrementedCounter
+}
+
+const stopCounter = () => {
+  clearInterval(timer)
+  counterContainer.textContent = 0
+}
+
 buttonInitCounter.addEventListener('click', () => {
-  timer = setInterval(() => {
-    counterContainer.textContent = Number(counterContainer.textContent) + 1
-  }, 1000)
+  timer = setInterval(incrementCounter, 1000)
 })
 
 buttonStopCounter.addEventListener('click', () => {
-  clearInterval(timer)
-  counterContainer.textContent = 0
+  stopCounter()
 })
 
 /* 
