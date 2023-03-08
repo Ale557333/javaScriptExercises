@@ -45,6 +45,23 @@ buttonStopCounter.addEventListener('click', () => {
   stopCounter()
 })
 
+
+
+//primeira parte:
+
+// let timer = null
+
+// buttonInitCounter.addEventListener('click', () =>{
+//   timer = setInterval(() => {
+//     counterContainer.textContent = Number(counterContainer.textContent) + 1
+//   }, 1000)
+// })
+
+// buttonStopCounter.addEventListener('click', () => {
+//   clearInterval(timer)
+//   counterContainer.textContent = 0
+// })
+
 /* 
   04
 
