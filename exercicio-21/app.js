@@ -52,7 +52,11 @@ console.log(squaredNumbers)
   especial \n.
 */
 
-//Observacao: Como é um caso de transformar um array numa string, usa-se o reduce.
+/*
+  - Nome 1
+  - Nome 2
+  - Nome 3
+*/
 
 const cart = [
   { name: 'Dark Souls III', price: 95.03 },
@@ -67,12 +71,6 @@ const productList = cart.reduce((accumulator, product) => {
 }, '')
 
 console.log(productList)
-
-/*
-  - Nome 1
-  - Nome 2
-  - Nome 3
-*/
 
 /*
   05
