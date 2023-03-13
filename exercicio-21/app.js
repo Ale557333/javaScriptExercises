@@ -7,7 +7,7 @@
 
 const randomNumbers = [10, 30, 15, 25, 50, 40, 5]
 
-const onlyOddNumbers = randomNumbers.filter(item => item % 2 === 1)
+const onlyOddNumbers = randomNumbers.filter(randomNumber => randomNumber % 2 === 1)
 
 console.log(onlyOddNumbers)
 /*
@@ -18,9 +18,16 @@ console.log(onlyOddNumbers)
 
 const crazyNumbers = [937, 5, 395, 402, 501, 333, 502, 781, 3, 691]
 
-const below501 = crazyNumbers.filter(item => item < 501) 
+const below501 = crazyNumbers.reduce((accumulator, crazyNumber) => {
+  if (crazyNumber < 501) {
+    accumulator += 1
+  }
+  
+  return accumulator
 
-console.log(below501.length)
+}, 0)
+
+console.log(below501)
 /*
   03
 
@@ -30,7 +37,7 @@ console.log(below501.length)
 
 const numbers = [5, 7, 3]
 
-const squaredNumbers = numbers.map(item => item ** 2)
+const squaredNumbers = numbers.map(number => number ** 2)
 
 console.log(squaredNumbers)
 
@@ -45,6 +52,8 @@ console.log(squaredNumbers)
   especial \n.
 */
 
+//Observacao: Como é um caso de transformar um array numa string, usa-se o reduce.
+
 const cart = [
   { name: 'Dark Souls III', price: 95.03 },
   { name: 'Shadow of the Tomb Raider', price: 101.19 },
@@ -53,9 +62,12 @@ const cart = [
   { name: 'Death Stranding', price: 149.99 }
 ]
 
-const gameNames = cart.map((item, index) => `- Nome ${index + 1}: ${item.name}\n`)
+const productList = cart.reduce((accumulator, product) => {
+  return `${accumulator} - ${product.name} \n`
+}, '')
 
-console.log(gameNames.join(''))
+console.log(productList)
+
 /*
   - Nome 1
   - Nome 2
@@ -83,6 +95,10 @@ const tarantinoMovies = [
   { name: 'Kill Bill: Volume 1', release: 2003 }
 ]
 
+const moviesBefore200 = tarantinoMovies.filter(tarantinoMovie => 
+  tarantinoMovie.release < 2000)
+
+  console.log(moviesBefore200)
 /*
   06
 
@@ -100,6 +116,9 @@ const tvShows = [
   { name: 'Watchmen', releaseYear: 2019 }
 ]
 
+const series = tvShows.map(tvShow => tvShow.name)
+
+console.log(series)
 /*
   07
 
