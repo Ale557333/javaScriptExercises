@@ -6,6 +6,8 @@
 */
 
 const myString = '    JS      '
+const myStringTrim = myString.trim()
+console.log(myStringTrim)
 
 /*
   02
@@ -23,6 +25,12 @@ const people = [
   { firstName: 'Eric', lastName: 'Silva', score: 82 }
 ]
 
+const peopleOrderedByScore = people
+  .map(({ firstName, lastName, score }) => ({ firstName, lastName, score }))
+  .sort((a, b) => a.score - b.score)
+
+console.log(peopleOrderedByScore)
+
 /*
   03
 
@@ -34,6 +42,8 @@ const people = [
 */
 
 const animals = ['cão', 'gato', 'boi', 'leão', 'gnu', 'alce', 'ema']
+const animalsWith3Letters = animals
+  .filter(({ length }) => length === 3)
 
 /*
   04
@@ -42,7 +52,7 @@ const animals = ['cão', 'gato', 'boi', 'leão', 'gnu', 'alce', 'ema']
     nome de cada animal. Ex.: [6, 8, 2].
 */
 
-
+const animalNameLength = animals.map(({ length }) => length)
 
 /*
   05
@@ -60,7 +70,8 @@ const friends = [
   { id: 5, name: 'Solange', nearMe: false }
 ]
 
-
+const friendsNearMe = friends.filter(({ nearMe }) => nearMe)
+const nameFriendsNearMe = friendsNearMe.map(({ name }) => name)
 
 /*
   06
@@ -70,6 +81,9 @@ const friends = [
 */
 
 const numbers = [46, 86, 212, 29, 51, 9, 25, 42, 81]
+const OddNumbersSome = numbers
+  .filter(number => number % 2)
+  .reduce((acc, item) => acc += item, 0)
 
 /*
   07
@@ -91,3 +105,7 @@ const data = [{
   country: 'Indonesia',
   population: 263991379
 }]
+
+const populationCountrySome = data
+  .filter(({ country }) => country !== 'China')
+  .reduce((acc, { population }) => acc + population, 0)
