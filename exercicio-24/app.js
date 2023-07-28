@@ -6,7 +6,9 @@
 */
 
 const message = 'Próxima etapa: 10'
+const stringFind = message.includes(':')
 
+console.log(stringFind)
 /*
   02
 
@@ -15,6 +17,9 @@ const message = 'Próxima etapa: 10'
 */
 
 const numbers = [979, 2673, 41, 77, 276, 554, 399, 385, 65, 726, 635, 833, 462]
+const arrayFind = numbers.includes(635)
+
+console.log(arrayFind)
 
 /*
   A partir daqui, vamos treinar nossas skills de refatoração.
